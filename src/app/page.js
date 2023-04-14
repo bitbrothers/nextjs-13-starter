@@ -1,8 +1,12 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
+import { Inter } from "next/font/google";
+import LogoCarousel from "./components/LogoCarousel";
+import styles from "./page.module.css";
+import FileCarousel from "./components/FileCarousel";
 
-const inter = Inter({ subsets: ['latin'] })
+const logos = ["logo-48.png", "logo-50.png", "logo-51.png", "logo-52.png"];
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -18,7 +22,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -32,20 +36,22 @@ export default function Home() {
       </div>
 
       <div className={styles.center}>
+        <LogoCarousel logos={logos} />
+      </div>
+      <div className={styles.center}>
         <Image
           className={styles.logo}
-          src="/next.svg"
+          src="/get_document_ai.png"
           alt="Next.js Logo"
-          width={180}
-          height={37}
+          width={455}
+          height={70}
           priority
         />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
       </div>
-
-      <div className={styles.grid}>
+      <div className={styles.center}>
+        <FileCarousel logos={logos} />
+      </div>
+      {/* <div className={styles.grid}>
         <a
           href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className={styles.card}
@@ -85,7 +91,7 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-      </div>
+      </div> */}
     </main>
-  )
+  );
 }
