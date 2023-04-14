@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Login() {
   return (
     <section className="bg-[#F4F7FF] py-20 lg:py-[120px] h-screen">
       <div className="container mx-auto">
@@ -8,7 +8,14 @@ export default function Home() {
               <div className="mb-10 text-center md:mb-16">
                 <h1 className="text-3xl font-bold text-black">Login</h1>
               </div>
-              <form>
+              <form
+              // onSubmit={() =>
+              //   signIn({
+              //     email: "sobingt@gmail.com",
+              //     password: "sobin123",
+              //   })
+              // }
+              >
                 <div className="mb-6">
                   <input
                     type="text"
@@ -24,11 +31,13 @@ export default function Home() {
                   />
                 </div>
                 <div className="mb-10">
-                  <input
+                  <button
                     type="submit"
                     value="Log In"
                     className="border-primary w-full cursor-pointer rounded-md border bg-blue-500 py-3 px-5 text-base text-white transition hover:bg-opacity-90"
-                  />
+                  >
+                    Log in
+                  </button>
                 </div>
               </form>
 
