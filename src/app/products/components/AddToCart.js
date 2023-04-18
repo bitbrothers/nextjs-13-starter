@@ -1,8 +1,3 @@
-"use client";
-import { post } from "@/app/api/common/base";
-
-const putCart = (productId) => post("/cart", { productId, quantity: 1 });
-
 const AddToCart = ({ productId }) => {
   return (
     <form action={`/api/cart/${productId}`} method="POST">
