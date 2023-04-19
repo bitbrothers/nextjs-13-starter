@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getCart } from "../api/cart/route";
+import UpdateQuantityButton from "./components/UpdateQuantityButton";
 
 const Cart = async () => {
   const { data } = await getCart();
@@ -25,7 +26,7 @@ const Cart = async () => {
             </thead>
             <tbody>
               {data?.items?.map((cartItem) => (
-                <tr key={cartItem.id} className="py-2 border-b-2">
+                <tr key={cartItem._id} className="py-2 border-b-2">
                   <td className="flex items-center gap-2">
                     <img
                       src={`${process.env.NEXT_PUBLIC_API_URL}/media/${cartItem?.product?.image?.filename}`}
@@ -39,9 +40,15 @@ const Cart = async () => {
                   <td>{cartItem.price}</td>
 
                   <td>
-                    <div className="flex w-fit items-center justify-center py-1 px-5 border-2">
-                      {cartItem.quantity}
+                    <div className="flex items-center">
+                      <UpdateQuantityButton productId={cartItem?.product?.id} action={'increment'} quantityValue={cartItem.quantity} />
+                      <div className="flex w-fit items-center justify-center py-1 px-5 border-2">
+                        {cartItem.quantity}
+                      </div>
+                      <UpdateQuantityButton productId={cartItem?.product?.id} action={'decrement'} quantityValue={cartItem.quantity} />
                     </div>
+
+
                   </td>
                   <td>{cartItem.total}</td>
                 </tr>
