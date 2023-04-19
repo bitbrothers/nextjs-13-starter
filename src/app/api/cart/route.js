@@ -5,6 +5,7 @@ export async function getCart() {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzgwOTM0MjczYzRmMTJmMmY1Yjk2ODUiLCJpYXQiOjE2ODE3MTU1NzcsImV4cCI6MzQ4MTcxNTU3NywidHlwZSI6ImFjY2VzcyJ9.5tfk3pRLcO0pFUfogDTWSBWNrRcvyUUMReJbm9vLbYE",
     },
+    cache: 'no-store'
   });
 
   if (!res.ok) {
